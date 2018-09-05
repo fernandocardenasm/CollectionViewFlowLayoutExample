@@ -94,12 +94,33 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 class ColorCell: UICollectionViewCell {
 
+    var noImageConstraintBottom: NSLayoutConstraint?
+
     var book: Book? {
         didSet {
             guard let book = book else { return }
             backgroundColor = book.isUpdated ? .black : book.color
+
+            if book.isUpdated {
+                updateView()
+            }
         }
     }
+
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Something great"
+        label.backgroundColor = .lightGray
+        return label
+    }()
+
+    lazy var imageView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .brown
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -111,7 +132,25 @@ class ColorCell: UICollectionViewCell {
     }
 
     func setupViews() {
-        backgroundColor = .gray
+
+        addSubview(titleLabel)
+        addSubview(imageView)
+
+        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        noImageConstraintBottom = titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        noImageConstraintBottom?.isActive = true
+
+        imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
+        imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1)
+
+    }
+
+    func updateView() {
+        noImageConstraintBottom?.isActive = false
+        imageView.constraints.forEach { $0.isActive = true }
     }
 }
 
