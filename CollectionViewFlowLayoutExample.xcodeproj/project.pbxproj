@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */; };
 		A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F67213FC247009D8223 /* AppDelegate.swift */; };
 		A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F69213FC247009D8223 /* ViewController.swift */; };
 		A43D0F6D213FC247009D8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F6B213FC247009D8223 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
 		A43D0F64213FC247009D8223 /* CollectionViewFlowLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewFlowLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43D0F67213FC247009D8223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43D0F69213FC247009D8223 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				A43D0F70213FC248009D8223 /* LaunchScreen.storyboard */,
 				A43D0F73213FC248009D8223 /* Info.plist */,
 				A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */,
+				A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */,
 			);
 			path = CollectionViewFlowLayoutExample;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */,
+				A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */,
 				A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */,
 				A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */,
 			);
