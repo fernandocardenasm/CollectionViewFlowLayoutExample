@@ -69,7 +69,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ColorCell.self), for: indexPath) as! ColorCell
 //        cell.titleLabel.text = ""
-//        cell.imageView.image = nil
+        cell.imageView.image = nil
         cell.book = books[indexPath.item]
         return cell
     }
@@ -136,7 +136,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 class ColorCell: UICollectionViewCell {
 
     var noImageConstraints: [NSLayoutConstraint]!
-    var imageContraints: [NSLayoutConstraint]!
+    var imageConstraints: [NSLayoutConstraint]!
 
     var book: Book? {
         didSet {
@@ -181,7 +181,7 @@ class ColorCell: UICollectionViewCell {
         noImageConstraints = [titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)]
         noImageConstraints.forEach { $0.isActive = true }
 
-        imageContraints = [imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+        imageConstraints = [imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
         imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
         imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1)]
     }
@@ -189,18 +189,17 @@ class ColorCell: UICollectionViewCell {
     func updateConstraintsForNoImage() {
         guard let constraint = noImageConstraints.first else { return }
         if !constraint.isActive {
-            imageView.image = nil
             noImageConstraints.forEach { $0.isActive = true }
-            imageContraints.forEach { $0.isActive = false }
+            imageConstraints.forEach { $0.isActive = false }
         }
     }
 
     func updateConstraintsForImage(book: Book) {
-        guard let constraint = noImageConstraints.first else { return }
-        if constraint.isActive {
-            imageView.image = book.image
+        imageView.image = book.image
+        guard let constraint = imageConstraints.first else { return }
+        if !constraint.isActive {
             noImageConstraints.forEach { $0.isActive = false }
-            imageContraints.forEach { $0.isActive = true }
+            imageConstraints.forEach { $0.isActive = true }
         }
     }
 }
