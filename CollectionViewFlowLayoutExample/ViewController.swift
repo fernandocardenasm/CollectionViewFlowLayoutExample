@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageTaskDownloadDelegate {
 
     var collectionView: UICollectionView!
     var flowLayout: ColumnFlowLayout!
+
+    var imageTasks = [Int: ImageTask]()
+    
 
     var books: [Book] = [Book(title: "Hallo 1", isUpdated: false, color: .red),
                          Book(title: "Hallo 2",isUpdated: false, color: .yellow, image: UIImage(named: "auto")),
@@ -55,11 +58,33 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         collectionView.dataSource = self
         collectionView.delegate = self
+
+        setupImageTasks()
+    }
+
+    func imageDownloaded(position: Int) {
+        collectionView.reloadItems(at: [IndexPath(row: position, section: 0)])
+    }
+
+    func setupImageTasks() {
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        guard let url = URL(string: "https://picsum.photos/300/200/?random") else { return }
+        for (index, _) in books.enumerated() {
+            imageTasks[index] = ImageTask(position: index, url: url, session: session, delegate: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        imageTasks[indexPath.row]?.resume()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        imageTasks[indexPath.row]?.pause()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,21 +93,33 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ColorCell.self), for: indexPath) as! ColorCell
-//        cell.titleLabel.text = ""
         cell.imageView.image = nil
         cell.book = books[indexPath.item]
+        if books[indexPath.item].isUpdated {
+            cell.book?.image = imageTasks[indexPath.row]?.image
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Yes")
         performUpdates(at: indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let availableWidth = collectionView.bounds.insetBy(dx: collectionView.layoutMargins.left, dy: collectionView.layoutMargins.top).size.width
+        let minColumnWidth = CGFloat(300.0)
+        let maxNumColumns = Int(availableWidth / minColumnWidth)
+        let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
+        
+        return books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 200) : CGSize(width: cellWidth, height: 70)
     }
 
     func performUpdates(at indexPath: IndexPath) {
         // Update Data Source
 
         //Reload is conflictin with delete, that´s why it cannot be in the same performBatchUpdates
+        //We can set the performBazchUpdates inside of performWithoutAnimation for no animation
         UIView.performWithoutAnimation {
             collectionView.performBatchUpdates({
                 books[indexPath.item].isUpdated.toggle()
@@ -141,8 +178,9 @@ class ColorCell: UICollectionViewCell {
     var book: Book? {
         didSet {
             guard let book = book else { return }
-            book.isUpdated ? updateConstraintsForImage(book: book) : updateConstraintsForNoImage()
             titleLabel.text = book.title
+            titleLabel.backgroundColor = book.color
+            book.isUpdated ? updateSetupForImage(book: book) : updateSetupForNoImage()
         }
     }
 
@@ -186,20 +224,20 @@ class ColorCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1)]
     }
 
-    func updateConstraintsForNoImage() {
+    func updateSetupForNoImage() {
         guard let constraint = noImageConstraints.first else { return }
         if !constraint.isActive {
-            noImageConstraints.forEach { $0.isActive = true }
             imageConstraints.forEach { $0.isActive = false }
+            noImageConstraints.forEach { $0.isActive = true }
         }
     }
 
-    func updateConstraintsForImage(book: Book) {
+    func updateSetupForImage(book: Book) {
         imageView.image = book.image
         guard let constraint = imageConstraints.first else { return }
         if !constraint.isActive {
-            noImageConstraints.forEach { $0.isActive = false }
             imageConstraints.forEach { $0.isActive = true }
+            noImageConstraints.forEach { $0.isActive = false }
         }
     }
 }
