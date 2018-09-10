@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A407DAC42142995A00392C6C /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A407DAC32142995A00392C6C /* ImageTask.swift */; };
 		A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */; };
 		A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F67213FC247009D8223 /* AppDelegate.swift */; };
 		A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F69213FC247009D8223 /* ViewController.swift */; };
@@ -15,10 +14,10 @@
 		A43D0F6F213FC248009D8223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F6E213FC248009D8223 /* Assets.xcassets */; };
 		A43D0F72213FC248009D8223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F70213FC248009D8223 /* LaunchScreen.storyboard */; };
 		A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */; };
+		A49896942146A046002DB5AC /* UIImageView+LoadImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A407DAC32142995A00392C6C /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
 		A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
 		A43D0F64213FC247009D8223 /* CollectionViewFlowLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewFlowLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43D0F67213FC247009D8223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		A43D0F71213FC248009D8223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A43D0F73213FC248009D8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
+		A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImageAsync.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 				A43D0F73213FC248009D8223 /* Info.plist */,
 				A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */,
 				A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */,
-				A407DAC32142995A00392C6C /* ImageTask.swift */,
+				A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */,
 			);
 			path = CollectionViewFlowLayoutExample;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 				A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */,
 				A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */,
 				A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */,
+				A49896942146A046002DB5AC /* UIImageView+LoadImageAsync.swift in Sources */,
 				A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */,
-				A407DAC42142995A00392C6C /* ImageTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

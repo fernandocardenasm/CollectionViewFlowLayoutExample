@@ -8,39 +8,38 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageTaskDownloadDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var collectionView: UICollectionView!
     var flowLayout: ColumnFlowLayout!
 
-    var imageTasks = [Int: ImageTask]()
-    
-
-    var books: [Book] = [Book(title: "Hallo 1", isUpdated: false, color: .red),
-                         Book(title: "Hallo 2",isUpdated: false, color: .yellow, image: UIImage(named: "auto")),
-                         Book(title: "Hallo 3",isUpdated: false, color: .green),
-                         Book(title: "Hallo 4",isUpdated: false, color: .gray),
-                         Book(title: "Hallo 5",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 6",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 7",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 8",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 9",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 10",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 11",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 12",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 13",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 14",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 15",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 16",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 17",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 18",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 19",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 20",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 21",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 22",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 23",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 24",isUpdated: false, color: .magenta),
-                         Book(title: "Hallo 25",isUpdated: false, color: .magenta, image: UIImage(named: "auto"))]
+    var books: [Book] = [
+        Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
+        Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
+        Book(title: "Hallo 3",isUpdated: false, color: .green, imageUrl: "https://picsum.photos/300/200/?image=3"),
+        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://picsum.photos/300/200/?image=4"),
+        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=5"),
+        Book(title: "Hallo 6",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=6"),
+        Book(title: "Hallo 7",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=7"),
+        Book(title: "Hallo 8",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=8"),
+        Book(title: "Hallo 9",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=9"),
+        Book(title: "Hallo 10",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=10"),
+        Book(title: "Hallo 11",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=11"),
+        Book(title: "Hallo 12",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=12"),
+        Book(title: "Hallo 13",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=13"),
+        Book(title: "Hallo 14",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=14"),
+        Book(title: "Hallo 15",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=15"),
+        Book(title: "Hallo 16",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=16"),
+        Book(title: "Hallo 17",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=17"),
+        Book(title: "Hallo 18",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=18"),
+        Book(title: "Hallo 19",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=19"),
+        Book(title: "Hallo 20",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=20"),
+        Book(title: "Hallo 21",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=21"),
+        Book(title: "Hallo 22",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=22"),
+        Book(title: "Hallo 23",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=23"),
+        Book(title: "Hallo 24",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=24"),
+        Book(title: "Hallo 25",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=25")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,20 +57,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         collectionView.dataSource = self
         collectionView.delegate = self
-
-        setupImageTasks()
     }
 
     func imageDownloaded(position: Int) {
         collectionView.reloadItems(at: [IndexPath(row: position, section: 0)])
-    }
-
-    func setupImageTasks() {
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        guard let url = URL(string: "https://picsum.photos/300/200/?random") else { return }
-        for (index, _) in books.enumerated() {
-            imageTasks[index] = ImageTask(position: index, url: url, session: session, delegate: self)
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,11 +69,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        imageTasks[indexPath.row]?.resume()
     }
 
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        imageTasks[indexPath.row]?.pause()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,11 +80,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ColorCell.self), for: indexPath) as! ColorCell
-        cell.imageView.image = nil
+
         cell.book = books[indexPath.item]
-        if books[indexPath.item].isUpdated {
-            cell.book?.image = imageTasks[indexPath.row]?.image
-        }
         return cell
     }
 
@@ -161,11 +145,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             // Real implementation
             //In this case the batchUpdates is not necessary because we are only one action to animate
 
-            let movedBook = books[indexPath.item]
-            books.remove(at: indexPath.item)
-            books.insert(movedBook, at: 0)
-
-            collectionView.moveItem(at: indexPath, to: IndexPath(item: 0, section: 0))
+//            let movedBook = books[indexPath.item]
+//            books.remove(at: indexPath.item)
+//            books.insert(movedBook, at: 0)
+//
+//            collectionView.moveItem(at: indexPath, to: IndexPath(item: 0, section: 0))
         })
     }
 }
@@ -178,6 +162,7 @@ class ColorCell: UICollectionViewCell {
     var book: Book? {
         didSet {
             guard let book = book else { return }
+            imageView.image = nil
             titleLabel.text = book.title
             titleLabel.backgroundColor = book.color
             book.isUpdated ? updateSetupForImage(book: book) : updateSetupForNoImage()
@@ -233,12 +218,13 @@ class ColorCell: UICollectionViewCell {
     }
 
     func updateSetupForImage(book: Book) {
-        imageView.image = book.image
         guard let constraint = imageConstraints.first else { return }
         if !constraint.isActive {
             imageConstraints.forEach { $0.isActive = true }
             noImageConstraints.forEach { $0.isActive = false }
         }
+        guard let imageUrl = book.imageUrl else { return }
+        imageView.loadImageUsing(urlString: imageUrl)
     }
 }
 
@@ -246,13 +232,13 @@ struct Book {
     var title: String
     var isUpdated: Bool
     var color: UIColor
-    var image: UIImage?
+    var imageUrl: String?
 
-    init(title: String = "Something great", isUpdated: Bool, color: UIColor, image: UIImage? = nil) {
+    init(title: String = "Something great", isUpdated: Bool, color: UIColor, imageUrl: String? = nil) {
         self.title = title
         self.isUpdated = isUpdated
         self.color = color
-        self.image = image
+        self.imageUrl = imageUrl
     }
 }
 
