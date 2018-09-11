@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageIO
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -16,9 +17,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var books: [Book] = [
         Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
         Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
-        Book(title: "Hallo 3",isUpdated: false, color: .green, imageUrl: "https://picsum.photos/300/200/?image=3"),
-        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://picsum.photos/300/200/?image=4"),
-        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=5"),
+        Book(title: "Hallo 3",isUpdated: false, color: .green, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
+        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
+        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
         Book(title: "Hallo 6",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=6"),
         Book(title: "Hallo 7",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=7"),
         Book(title: "Hallo 8",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=8"),
@@ -80,8 +81,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ColorCell.self), for: indexPath) as! ColorCell
-
+        
         cell.book = books[indexPath.item]
+
         return cell
     }
 
