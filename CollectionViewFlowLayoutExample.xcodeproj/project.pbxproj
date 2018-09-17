@@ -15,6 +15,7 @@
 		A43D0F72213FC248009D8223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F70213FC248009D8223 /* LaunchScreen.storyboard */; };
 		A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */; };
 		A49896942146A046002DB5AC /* UIImageView+LoadImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */; };
+		A4E8B647214FDA1D00DA3E6F /* ImageModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8B646214FDA1D00DA3E6F /* ImageModelController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A43D0F73213FC248009D8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImageAsync.swift"; sourceTree = "<group>"; };
+		A4E8B646214FDA1D00DA3E6F /* ImageModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModelController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */,
 				A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */,
 				A49896932146A046002DB5AC /* UIImageView+LoadImageAsync.swift */,
+				A4E8B646214FDA1D00DA3E6F /* ImageModelController.swift */,
 			);
 			path = CollectionViewFlowLayoutExample;
 			sourceTree = "<group>";
@@ -105,6 +108,7 @@
 				TargetAttributes = {
 					A43D0F63213FC247009D8223 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -145,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */,
+				A4E8B647214FDA1D00DA3E6F /* ImageModelController.swift in Sources */,
 				A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */,
 				A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */,
 				A49896942146A046002DB5AC /* UIImageView+LoadImageAsync.swift in Sources */,
@@ -300,7 +305,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fernando.CollectionViewFlowLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -317,7 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fernando.CollectionViewFlowLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

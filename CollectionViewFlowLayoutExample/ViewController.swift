@@ -18,28 +18,57 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
         Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
         Book(title: "Hallo 3",isUpdated: false, color: .green, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
-        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
-        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
-        Book(title: "Hallo 6",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=6"),
-        Book(title: "Hallo 7",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=7"),
-        Book(title: "Hallo 8",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=8"),
-        Book(title: "Hallo 9",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=9"),
-        Book(title: "Hallo 10",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=10"),
-        Book(title: "Hallo 11",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=11"),
-        Book(title: "Hallo 12",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=12"),
-        Book(title: "Hallo 13",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=13"),
-        Book(title: "Hallo 14",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=14"),
-        Book(title: "Hallo 15",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=15"),
-        Book(title: "Hallo 16",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=16"),
-        Book(title: "Hallo 17",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=17"),
-        Book(title: "Hallo 18",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=18"),
-        Book(title: "Hallo 19",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=19"),
-        Book(title: "Hallo 20",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=20"),
-        Book(title: "Hallo 21",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=21"),
-        Book(title: "Hallo 22",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=22"),
-        Book(title: "Hallo 23",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=23"),
-        Book(title: "Hallo 24",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=24"),
-        Book(title: "Hallo 25",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/300/200/?image=25")
+        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg"),
+        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/4000/2000/?image=5"),
+        Book(title: "Hallo 6",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/4000/2000/?image=6"),
+        Book(title: "Hallo 7",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=7"),
+        Book(title: "Hallo 8",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=8"),
+        Book(title: "Hallo 9",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=9"),
+        Book(title: "Hallo 10",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=10"),
+        Book(title: "Hallo 11",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=11"),
+        Book(title: "Hallo 12",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=12"),
+        Book(title: "Hallo 13",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=13"),
+        Book(title: "Hallo 14",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=14"),
+        Book(title: "Hallo 15",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=15"),
+        Book(title: "Hallo 16",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=16"),
+        Book(title: "Hallo 17",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=17"),
+        Book(title: "Hallo 18",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=18"),
+        Book(title: "Hallo 19",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=19"),
+        Book(title: "Hallo 20",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=20"),
+        Book(title: "Hallo 21",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=21"),
+        Book(title: "Hallo 22",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=22"),
+        Book(title: "Hallo 23",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=23"),
+        Book(title: "Hallo 24",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=24"),
+        Book(title: "Hallo 25",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=25"),
+        Book(title: "Hallo 26",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=26"),
+        Book(title: "Hallo 27",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=27"),
+        Book(title: "Hallo 28",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=28"),
+        Book(title: "Hallo 29",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=29"),
+        Book(title: "Hallo 30",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=30"),
+        Book(title: "Hallo 31",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=31"),
+        Book(title: "Hallo 32",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=32"),
+        Book(title: "Hallo 33",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=33"),
+        Book(title: "Hallo 34",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=34"),
+        Book(title: "Hallo 35",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=35"),
+        Book(title: "Hallo 36",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=36"),
+        Book(title: "Hallo 37",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=37"),
+        Book(title: "Hallo 38",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=38"),
+        Book(title: "Hallo 39",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=39"),
+        Book(title: "Hallo 40",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=40"),
+        Book(title: "Hallo 41",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=41"),
+        Book(title: "Hallo 42",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=42"),
+        Book(title: "Hallo 43",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=43"),
+        Book(title: "Hallo 44",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=44"),
+        Book(title: "Hallo 45",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=45"),
+        Book(title: "Hallo 46",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=46"),
+        Book(title: "Hallo 47",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=47"),
+        Book(title: "Hallo 48",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=48"),
+        Book(title: "Hallo 49",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=49"),
+        Book(title: "Hallo 50",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=50"),
+        Book(title: "Hallo 51",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=51"),
+        Book(title: "Hallo 52",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=52"),
+        Book(title: "Hallo 53",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=53"),
+        Book(title: "Hallo 54",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=54")
     ]
 
     override func viewDidLoad() {
@@ -94,11 +123,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let availableWidth = collectionView.bounds.insetBy(dx: collectionView.layoutMargins.left, dy: collectionView.layoutMargins.top).size.width
-        let minColumnWidth = CGFloat(300.0)
+        let minColumnWidth = CGFloat(70.0)
         let maxNumColumns = Int(availableWidth / minColumnWidth)
         let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         
-        return books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 200) : CGSize(width: cellWidth, height: 70)
+        return books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 100) : CGSize(width: cellWidth, height: 70)
     }
 
     func performUpdates(at indexPath: IndexPath) {
@@ -222,8 +251,8 @@ class ColorCell: UICollectionViewCell {
     func updateSetupForImage(book: Book) {
         guard let constraint = imageConstraints.first else { return }
         if !constraint.isActive {
-            imageConstraints.forEach { $0.isActive = true }
             noImageConstraints.forEach { $0.isActive = false }
+            imageConstraints.forEach { $0.isActive = true }
         }
         guard let imageUrl = book.imageUrl else { return }
         imageView.loadImageUsing(urlString: imageUrl)
@@ -235,6 +264,7 @@ struct Book {
     var isUpdated: Bool
     var color: UIColor
     var imageUrl: String?
+    var imageData: NSData?
 
     init(title: String = "Something great", isUpdated: Bool, color: UIColor, imageUrl: String? = nil) {
         self.title = title
