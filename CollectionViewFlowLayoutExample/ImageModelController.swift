@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageProcessor {
-    static func downsampleImage(fromData data: CFData, to pointSize: CGSize, scale: CGFloat) -> UIImage {
+    static func downsampleImage(fromData data: CFData, to pointSize: CGSize = CGSize(width: 200, height: 200), scale: CGFloat = 1.0) -> UIImage {
         let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
         guard let imageSource = CGImageSourceCreateWithData(data, imageSourceOptions) else { assert(false) }
 

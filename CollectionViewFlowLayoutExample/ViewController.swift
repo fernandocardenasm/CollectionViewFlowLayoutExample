@@ -16,6 +16,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     var imageModelController: ImageModelController = ImageModelController()
 
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
     var books: [Book] = [
         Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
         Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
@@ -89,15 +91,42 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         collectionView.dataSource = self
         collectionView.delegate = self
+
+        view.addSubview(activityIndicator)
+
+        activityIndicator.frame = view.bounds
+
+        activityIndicator.startAnimating()
+
+        downloadImages(limit: 50)
     }
 
-    func imageDownloaded(position: Int) {
-        collectionView.reloadItems(at: [IndexPath(row: position, section: 0)])
-    }
+//    let serialQueue = DispatchQueue(label: "Decode queue") // For a further implementation
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func downloadImages(limit: Int) {
+        var count = 0
+        for index in 0..<limit {
+            guard let imageUrl = books[index].imageUrl else { assert(false) }
+            guard let url = URL(string: imageUrl) else { assert(false) }
+
+            imageModelController.loadData(fromURL: url) { [weak self] (outcome) in
+                count += 1
+                switch outcome {
+                case .success(let data):
+                    //When we implement getting a response with multiple images consider to use serialqueue.async to avoid overloading the CPUs.
+                    self?.books[index].image = ImageProcessor.downsampleImage(fromData: data as CFData)
+                    print("Index \(index)")
+                case .error(let error):
+                    print("|ERROR: \(error)")
+                }
+                if count == limit {
+                    print("Finished")
+                    DispatchQueue.main.async {
+                        self?.activityIndicator.stopAnimating()
+                    }
+                }
+            }
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -115,9 +144,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         cell.book = books[indexPath.item]
 
-        if cell.book?.isUpdated == true {
-            loadImage(in: cell)
-        }
+//        if cell.book?.isUpdated == true {
+////            loadImage(in: cell)
+//            cell.imageView.image = books[indexPath.item].image
+//        }
         return cell
     }
 
@@ -279,9 +309,10 @@ class ColorCell: UICollectionViewCell {
     func updateSetupForImage(book: Book) {
         guard let constraint = imageConstraints.first else { return }
         if !constraint.isActive {
-            noImageConstraints.forEach { $0.isActive = false }
             imageConstraints.forEach { $0.isActive = true }
+            noImageConstraints.forEach { $0.isActive = false }
         }
+        imageView.image = book.image
     }
 }
 
@@ -290,7 +321,7 @@ struct Book {
     var isUpdated: Bool
     var color: UIColor
     var imageUrl: String?
-    var imageData: Data?
+    var image: UIImage?
 
     init(title: String = "Something great", isUpdated: Bool, color: UIColor, imageUrl: String? = nil) {
         self.title = title
