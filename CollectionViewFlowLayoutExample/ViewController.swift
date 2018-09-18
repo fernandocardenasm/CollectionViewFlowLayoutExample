@@ -14,6 +14,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var collectionView: UICollectionView!
     var flowLayout: ColumnFlowLayout!
 
+    var imageModelController: ImageModelController = ImageModelController()
+
     var books: [Book] = [
         Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
         Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
@@ -113,6 +115,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         cell.book = books[indexPath.item]
 
+        if cell.book?.isUpdated == true {
+            loadImage(in: cell)
+        }
         return cell
     }
 
@@ -123,14 +128,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let availableWidth = collectionView.bounds.insetBy(dx: collectionView.layoutMargins.left, dy: collectionView.layoutMargins.top).size.width
-        let minColumnWidth = CGFloat(70.0)
+        let minColumnWidth = CGFloat(200.0)
         let maxNumColumns = Int(availableWidth / minColumnWidth)
         let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         
         return books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 100) : CGSize(width: cellWidth, height: 70)
     }
 
-    func performUpdates(at indexPath: IndexPath) {
+    private func performUpdates(at indexPath: IndexPath) {
         // Update Data Source
 
         //Reload is conflictin with delete, that´s why it cannot be in the same performBatchUpdates
@@ -182,6 +187,29 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //
 //            collectionView.moveItem(at: indexPath, to: IndexPath(item: 0, section: 0))
         })
+    }
+
+    private func loadImage(in cell: ColorCell){
+        guard let imageUrl = cell.book?.imageUrl else { assert(false) }
+        guard let url = URL(string: imageUrl) else { assert(false) }
+
+        if let imageFromCache = imageModelController.imageCache.object(forKey: imageUrl as NSString) {
+            cell.imageView.image = imageFromCache
+        }
+        imageModelController.loadData(fromURL: url) { [weak self] (outcome) in
+            switch outcome {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    guard !cell.imageView.bounds.size.equalTo(CGSize.zero) else { return }
+                    guard cell.traitCollection.displayScale != 0 else { return }
+                    let imageToCache = ImageProcessor.downsampleImage(fromData: data as CFData, to: cell.imageView.bounds.size, scale: cell.traitCollection.displayScale)
+                    self?.imageModelController.imageCache.setObject(imageToCache, forKey: imageUrl as NSString)
+                    cell.imageView.image = imageToCache
+                }
+            case .error(let error):
+                print("|ERROR: \(error)")
+            }
+        }
     }
 }
 
@@ -254,8 +282,6 @@ class ColorCell: UICollectionViewCell {
             noImageConstraints.forEach { $0.isActive = false }
             imageConstraints.forEach { $0.isActive = true }
         }
-        guard let imageUrl = book.imageUrl else { return }
-        imageView.loadImageUsing(urlString: imageUrl)
     }
 }
 
@@ -264,7 +290,7 @@ struct Book {
     var isUpdated: Bool
     var color: UIColor
     var imageUrl: String?
-    var imageData: NSData?
+    var imageData: Data?
 
     init(title: String = "Something great", isUpdated: Bool, color: UIColor, imageUrl: String? = nil) {
         self.title = title
