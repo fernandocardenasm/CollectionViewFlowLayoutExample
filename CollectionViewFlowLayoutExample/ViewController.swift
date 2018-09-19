@@ -16,7 +16,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     var imageModelController: ImageModelController = ImageModelController()
 
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
 
     var books: [Book] = [
         Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
@@ -101,6 +101,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         downloadImages(limit: 50)
     }
 
+    //Make sure that the rotation from lanscape to portrait the size of the collectionView and cells are recalculated
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
 //    let serialQueue = DispatchQueue(label: "Decode queue") // For a further implementation
 
     func downloadImages(limit: Int) {
@@ -157,8 +163,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let availableWidth = collectionView.bounds.insetBy(dx: collectionView.layoutMargins.left, dy: collectionView.layoutMargins.top).size.width
-        let minColumnWidth = CGFloat(200.0)
+        let availableWidth = collectionView.bounds.inset(by: collectionView.layoutMargins).size.width
+        let minColumnWidth = CGFloat(150.0)
         let maxNumColumns = Int(availableWidth / minColumnWidth)
         let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         

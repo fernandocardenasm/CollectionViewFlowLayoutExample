@@ -11,8 +11,6 @@ import UIKit
 class ColumnFlowLayout: UICollectionViewFlowLayout {
 
     override func prepare() {
-        super.prepare()
-
         //If the size of the cells do not change, we could sell all the methods here
 //        guard let cv = collectionView else { return }
 
@@ -26,5 +24,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
         sectionInset = UIEdgeInsets(top: self.minimumLineSpacing, left: 0.0, bottom: self.minimumLineSpacing, right: 0.0)
 
         sectionInsetReference = .fromSafeArea
+
+        super.prepare()
     }
 }
