@@ -219,28 +219,28 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         })
     }
 
-    private func loadImage(in cell: ColorCell){
-        guard let imageUrl = cell.book?.imageUrl else { assert(false) }
-        guard let url = URL(string: imageUrl) else { assert(false) }
-
-        if let imageFromCache = imageModelController.imageCache.object(forKey: imageUrl as NSString) {
-            cell.imageView.image = imageFromCache
-        }
-        imageModelController.loadData(fromURL: url) { [weak self] (outcome) in
-            switch outcome {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    guard !cell.imageView.bounds.size.equalTo(CGSize.zero) else { return }
-                    guard cell.traitCollection.displayScale != 0 else { return }
-                    let imageToCache = ImageProcessor.downsampleImage(fromData: data as CFData, to: cell.imageView.bounds.size, scale: cell.traitCollection.displayScale)
-                    self?.imageModelController.imageCache.setObject(imageToCache, forKey: imageUrl as NSString)
-                    cell.imageView.image = imageToCache
-                }
-            case .error(let error):
-                print("|ERROR: \(error)")
-            }
-        }
-    }
+//    private func loadImage(in cell: ColorCell){
+//        guard let imageUrl = cell.book?.imageUrl else { assert(false) }
+//        guard let url = URL(string: imageUrl) else { assert(false) }
+//
+//        if let imageFromCache = imageModelController.imageCache.object(forKey: imageUrl as NSString) {
+//            cell.imageView.image = imageFromCache
+//        }
+//        imageModelController.loadData(fromURL: url) { [weak self] (outcome) in
+//            switch outcome {
+//            case .success(let data):
+//                DispatchQueue.main.async {
+//                    guard !cell.imageView.bounds.size.equalTo(CGSize.zero) else { return }
+//                    guard cell.traitCollection.displayScale != 0 else { return }
+//                    let imageToCache = ImageProcessor.downsampleImage(fromData: data as CFData, to: cell.imageView.bounds.size, scale: cell.traitCollection.displayScale)
+//                    self?.imageModelController.imageCache.setObject(imageToCache, forKey: imageUrl as NSString)
+//                    cell.imageView.image = imageToCache
+//                }
+//            case .error(let error):
+//                print("|ERROR: \(error)")
+//            }
+//        }
+//    }
 }
 
 class ColorCell: UICollectionViewCell {
