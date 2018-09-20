@@ -101,12 +101,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         downloadImages(limit: 50)
     }
 
-    //Make sure that the rotation from lanscape to portrait the size of the collectionView and cells are recalculated
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-
 //    let serialQueue = DispatchQueue(label: "Decode queue") // For a further implementation
 
     func downloadImages(limit: Int) {

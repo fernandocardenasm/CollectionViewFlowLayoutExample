@@ -28,8 +28,6 @@ class ImageProcessor {
 
 class ImageModelController {
 
-    let imageCache = NSCache<NSString, UIImage>()
-
     let session: URLSession = URLSession()
     private var task: URLSessionDataTask?
 
