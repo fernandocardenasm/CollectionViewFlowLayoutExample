@@ -26,26 +26,6 @@ class ImageProcessor {
     }
 }
 
-class ImageModelController {
-
-    let session: URLSession = URLSession()
-    private var task: URLSessionDataTask?
-
-    typealias Handler = (Outcome<Data, NSError>) -> Void
-
-    func loadData(fromURL url: URL, completion: @escaping Handler) {
-        task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("|ERROR: \(String(describing: error))")
-                completion(.error(error as NSError))
-            }
-            guard let data = data else { return }
-            completion(.success(data))
-        }
-        task?.resume()
-    }
-}
-
 enum Outcome<Value, Error: Swift.Error> {
     case success(Value)
     case error(Error)

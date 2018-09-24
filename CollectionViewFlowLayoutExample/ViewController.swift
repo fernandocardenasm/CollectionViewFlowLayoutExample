@@ -14,135 +14,78 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var collectionView: UICollectionView!
     var flowLayout: ColumnFlowLayout!
 
-    var imageModelController: ImageModelController = ImageModelController()
+    let imageModelController: ImageProcessor = ImageProcessor()
+    let booksModelController: BooksModelController = BooksModelController(dataLoader: DataLoader())
 
     let activityIndicator = UIActivityIndicatorView(style: .gray)
 
-    var books: [Book] = [
-        Book(title: "Hallo 1", isUpdated: false, color: .red, imageUrl: "https://picsum.photos/4000/4000/?image=1"),
-        Book(title: "Hallo 2",isUpdated: false, color: .yellow, imageUrl: "https://picsum.photos/4000/4000/?image=2"),
-        Book(title: "Hallo 3",isUpdated: false, color: .green, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Clocktower_Panorama_20080622_20mb.jpg"),
-        Book(title: "Hallo 4",isUpdated: false, color: .gray, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg"),
-        Book(title: "Hallo 5",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/4000/2000/?image=5"),
-        Book(title: "Hallo 6",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/4000/2000/?image=6"),
-        Book(title: "Hallo 7",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=7"),
-        Book(title: "Hallo 8",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=8"),
-        Book(title: "Hallo 9",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=9"),
-        Book(title: "Hallo 10",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=10"),
-        Book(title: "Hallo 11",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=11"),
-        Book(title: "Hallo 12",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=12"),
-        Book(title: "Hallo 13",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=13"),
-        Book(title: "Hallo 14",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=14"),
-        Book(title: "Hallo 15",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=15"),
-        Book(title: "Hallo 16",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=16"),
-        Book(title: "Hallo 17",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=17"),
-        Book(title: "Hallo 18",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=18"),
-        Book(title: "Hallo 19",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=19"),
-        Book(title: "Hallo 20",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=20"),
-        Book(title: "Hallo 21",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=21"),
-        Book(title: "Hallo 22",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=22"),
-        Book(title: "Hallo 23",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=23"),
-        Book(title: "Hallo 24",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=24"),
-        Book(title: "Hallo 25",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=25"),
-        Book(title: "Hallo 26",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=26"),
-        Book(title: "Hallo 27",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=27"),
-        Book(title: "Hallo 28",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=28"),
-        Book(title: "Hallo 29",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=29"),
-        Book(title: "Hallo 30",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=30"),
-        Book(title: "Hallo 31",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=31"),
-        Book(title: "Hallo 32",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=32"),
-        Book(title: "Hallo 33",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=33"),
-        Book(title: "Hallo 34",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=34"),
-        Book(title: "Hallo 35",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=35"),
-        Book(title: "Hallo 36",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=36"),
-        Book(title: "Hallo 37",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=37"),
-        Book(title: "Hallo 38",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=38"),
-        Book(title: "Hallo 39",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=39"),
-        Book(title: "Hallo 40",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=40"),
-        Book(title: "Hallo 41",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=41"),
-        Book(title: "Hallo 42",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=42"),
-        Book(title: "Hallo 43",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=43"),
-        Book(title: "Hallo 44",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=44"),
-        Book(title: "Hallo 45",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=45"),
-        Book(title: "Hallo 46",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=46"),
-        Book(title: "Hallo 47",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=47"),
-        Book(title: "Hallo 48",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=48"),
-        Book(title: "Hallo 49",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=49"),
-        Book(title: "Hallo 50",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=50"),
-        Book(title: "Hallo 51",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=51"),
-        Book(title: "Hallo 52",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=52"),
-        Book(title: "Hallo 53",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=53"),
-        Book(title: "Hallo 54",isUpdated: false, color: .magenta, imageUrl: "https://picsum.photos/3000/2000/?image=54")
-    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+
+        setupActivityIndicator()
+
+        loadBooks()
+    }
+
+    fileprivate func setupCollectionView() {
         // Do any additional setup after loading the view, typically from a nib.
 
         flowLayout = ColumnFlowLayout()
-
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .blue
         collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = .white
         view.addSubview(collectionView)
 
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: String(describing: ColorCell.self))
 
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
 
+    fileprivate func setupActivityIndicator() {
         view.addSubview(activityIndicator)
-
         activityIndicator.frame = view.bounds
-
-        activityIndicator.startAnimating()
-
-        downloadImages(limit: 50)
+        activityIndicator.backgroundColor = .white
     }
 
 //    let serialQueue = DispatchQueue(label: "Decode queue") // For a further implementation
 
-    func downloadImages(limit: Int) {
-        var count = 0
-        for index in 0..<limit {
-            guard let imageUrl = books[index].imageUrl else { assert(false) }
-            guard let url = URL(string: imageUrl) else { assert(false) }
-
-            imageModelController.loadData(fromURL: url) { [weak self] (outcome) in
-                count += 1
-                switch outcome {
-                case .success(let data):
-                    //When we implement getting a response with multiple images consider to use serialqueue.async to avoid overloading the CPUs.
-                    self?.books[index].image = ImageProcessor.downsampleImage(fromData: data as CFData)
-                    print("Index \(index)")
-                case .error(let error):
-                    print("|ERROR: \(error)")
-                }
-                if count == limit {
-                    print("Finished")
-                    DispatchQueue.main.async {
-                        self?.activityIndicator.stopAnimating()
-                    }
-                }
+    func loadBooks() {
+        activityIndicator.startAnimating()
+        booksModelController.loadBooks(completion: { [weak self] (outcome) in
+            switch outcome {
+            case .success(_):
+                print("Entered here")
+                self?.downloadImages(limit: 50)
+            case .error(let error):
+                print("|ERROR: \(error)")
             }
-        }
+        })
     }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func downloadImages(limit: Int) {
+        booksModelController.loadImagesFor(numberOfBooks: 50, completion: { [weak self] (outcome) in
+            switch outcome {
+            case .success(_):
+                print("Images were loaded")
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                }
+            case .error(let error):
+                print("|ERROR: \(error)")
+            }
+        })
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
+        return booksModelController.books.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ColorCell.self), for: indexPath) as! ColorCell
         
-        cell.book = books[indexPath.item]
+        cell.book = booksModelController.books[indexPath.item]
 
 //        if cell.book?.isUpdated == true {
 ////            loadImage(in: cell)
@@ -162,7 +105,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let maxNumColumns = Int(availableWidth / minColumnWidth)
         let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         
-        return books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 100) : CGSize(width: cellWidth, height: 70)
+        return booksModelController.books[indexPath.item].isUpdated ? CGSize(width: cellWidth, height: 100) : CGSize(width: cellWidth, height: 70)
     }
 
     private func performUpdates(at indexPath: IndexPath) {
@@ -172,7 +115,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //We can set the performBazchUpdates inside of performWithoutAnimation for no animation
         UIView.performWithoutAnimation {
             collectionView.performBatchUpdates({
-                books[indexPath.item].isUpdated.toggle()
+                booksModelController.updateBookStatus(at: indexPath.item)
                 collectionView.reloadItems(at: [indexPath])
             })
         }
@@ -313,21 +256,6 @@ class ColorCell: UICollectionViewCell {
             noImageConstraints.forEach { $0.isActive = false }
         }
         imageView.image = book.image
-    }
-}
-
-struct Book {
-    var title: String
-    var isUpdated: Bool
-    var color: UIColor
-    var imageUrl: String?
-    var image: UIImage?
-
-    init(title: String = "Something great", isUpdated: Bool, color: UIColor, imageUrl: String? = nil) {
-        self.title = title
-        self.isUpdated = isUpdated
-        self.color = color
-        self.imageUrl = imageUrl
     }
 }
 
