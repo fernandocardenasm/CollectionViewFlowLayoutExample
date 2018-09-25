@@ -25,8 +25,3 @@ class ImageProcessor {
         return UIImage(cgImage: downsampledImage)
     }
 }
-
-enum Outcome<Value, Error: Swift.Error> {
-    case success(Value)
-    case error(Error)
-}

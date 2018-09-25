@@ -47,24 +47,23 @@ class BooksModelController {
         var numberOfIterations = 0
 
         for (index, book) in books.prefix(numberOfBooks).enumerated() {
-            guard let urlString = book.imageUrl, let url = URL(string: urlString) else { return }
+            if let urlString = book.imageUrl, let url = URL(string: urlString) {
+                dataLoader.loadData(from: url, completion: { [weak self] (outcome) in
+                    switch outcome {
+                    case .success(let data):
+                        // When we implement getting a response with multiple images consider to use serialqueue.async to avoid overloading the CPUs.
+                        self?.books[index].image = ImageProcessor.downsampleImage(fromData: data as CFData)
+                    case .error(let error):
+                        print("|ERROR: \(error)")
+                        completion(.error(error))
+                    }
+                    numberOfIterations += 1
 
-            dataLoader.loadData(from: url, completion: { [weak self] (outcome) in
-                switch outcome {
-                case .success(let data):
-                    // When we implement getting a response with multiple images consider to use serialqueue.async to avoid overloading the CPUs.
-                    self?.books[index].image = ImageProcessor.downsampleImage(fromData: data as CFData)
-                    print("Book at Index: \(index)")
-                case .error(let error):
-                    print("|ERROR: \(error)")
-                    completion(.error(error))
-                }
-                numberOfIterations += 1
-
-                if numberOfIterations == numberOfBooks {
-                    completion(.success(true))
-                }
-            })
+                    if numberOfIterations == numberOfBooks {
+                        completion(.success(true))
+                    }
+                })
+            }
         }
     }
 

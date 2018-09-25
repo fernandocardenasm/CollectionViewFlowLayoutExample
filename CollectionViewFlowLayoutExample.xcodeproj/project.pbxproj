@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */; };
+		A43ADA0A215A1EB8003664AD /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA09215A1EB8003664AD /* WelcomeCell.swift */; };
+		A43ADA0C215A1F19003664AD /* Outcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA0B215A1F19003664AD /* Outcome.swift */; };
+		A43ADA0E215A20D2003664AD /* ViewControllerAdapter+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA0D215A20D2003664AD /* ViewControllerAdapter+DataSource.swift */; };
+		A43ADA10215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA0F215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift */; };
+		A43ADA12215A27DA003664AD /* ViewControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA11215A27DA003664AD /* ViewControllerAdapter.swift */; };
 		A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F67213FC247009D8223 /* AppDelegate.swift */; };
 		A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F69213FC247009D8223 /* ViewController.swift */; };
 		A43D0F6D213FC247009D8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F6B213FC247009D8223 /* Main.storyboard */; };
@@ -20,7 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Toggle.swift"; sourceTree = "<group>"; };
+		A43ADA09215A1EB8003664AD /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
+		A43ADA0B215A1F19003664AD /* Outcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outcome.swift; sourceTree = "<group>"; };
+		A43ADA0D215A20D2003664AD /* ViewControllerAdapter+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerAdapter+DataSource.swift"; sourceTree = "<group>"; };
+		A43ADA0F215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerAdapter+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		A43ADA11215A27DA003664AD /* ViewControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAdapter.swift; sourceTree = "<group>"; };
 		A43D0F64213FC247009D8223 /* CollectionViewFlowLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewFlowLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43D0F67213FC247009D8223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43D0F69213FC247009D8223 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,10 +79,14 @@
 				A43D0F70213FC248009D8223 /* LaunchScreen.storyboard */,
 				A43D0F73213FC248009D8223 /* Info.plist */,
 				A43D0F79213FD675009D8223 /* ColumnFlowLayout.swift */,
-				A437F8AE21410CE2009E2EE0 /* Bool+Toggle.swift */,
 				A4E8B646214FDA1D00DA3E6F /* ImageProcessor.swift */,
 				A4A545492158E847009050B2 /* Book.swift */,
 				A4A5454B2158F6CF009050B2 /* DataLoader.swift */,
+				A43ADA09215A1EB8003664AD /* WelcomeCell.swift */,
+				A43ADA0B215A1F19003664AD /* Outcome.swift */,
+				A43ADA0D215A20D2003664AD /* ViewControllerAdapter+DataSource.swift */,
+				A43ADA0F215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift */,
+				A43ADA11215A27DA003664AD /* ViewControllerAdapter.swift */,
 			);
 			path = CollectionViewFlowLayoutExample;
 			sourceTree = "<group>";
@@ -151,13 +163,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43ADA0A215A1EB8003664AD /* WelcomeCell.swift in Sources */,
 				A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */,
 				A4E8B647214FDA1D00DA3E6F /* ImageProcessor.swift in Sources */,
+				A43ADA0E215A20D2003664AD /* ViewControllerAdapter+DataSource.swift in Sources */,
 				A4A5454C2158F6CF009050B2 /* DataLoader.swift in Sources */,
+				A43ADA0C215A1F19003664AD /* Outcome.swift in Sources */,
+				A43ADA12215A27DA003664AD /* ViewControllerAdapter.swift in Sources */,
 				A4A5454A2158E847009050B2 /* Book.swift in Sources */,
-				A437F8AF21410CE2009E2EE0 /* Bool+Toggle.swift in Sources */,
 				A43D0F7A213FD675009D8223 /* ColumnFlowLayout.swift in Sources */,
 				A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */,
+				A43ADA10215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
