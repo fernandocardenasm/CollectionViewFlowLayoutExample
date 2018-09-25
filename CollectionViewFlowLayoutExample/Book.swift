@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Book {
+struct Book: Equatable {
     var title: String
     var isUpdated: Bool
     var color: UIColor

@@ -12,6 +12,9 @@
 		A43ADA0E215A20D2003664AD /* ViewControllerAdapter+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA0D215A20D2003664AD /* ViewControllerAdapter+DataSource.swift */; };
 		A43ADA10215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA0F215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift */; };
 		A43ADA12215A27DA003664AD /* ViewControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA11215A27DA003664AD /* ViewControllerAdapter.swift */; };
+		A43ADA1C215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA1B215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.swift */; };
+		A43ADA24215A49E8003664AD /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA23215A49E8003664AD /* ViewControllerTests.swift */; };
+		A43ADA26215A4A4B003664AD /* BooksModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ADA25215A4A4B003664AD /* BooksModelControllerTests.swift */; };
 		A43D0F68213FC247009D8223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F67213FC247009D8223 /* AppDelegate.swift */; };
 		A43D0F6A213FC247009D8223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D0F69213FC247009D8223 /* ViewController.swift */; };
 		A43D0F6D213FC247009D8223 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43D0F6B213FC247009D8223 /* Main.storyboard */; };
@@ -23,12 +26,27 @@
 		A4E8B647214FDA1D00DA3E6F /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8B646214FDA1D00DA3E6F /* ImageProcessor.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A43ADA1E215A47FF003664AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A43D0F5C213FC247009D8223 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A43D0F63213FC247009D8223;
+			remoteInfo = CollectionViewFlowLayoutExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A43ADA09215A1EB8003664AD /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
 		A43ADA0B215A1F19003664AD /* Outcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outcome.swift; sourceTree = "<group>"; };
 		A43ADA0D215A20D2003664AD /* ViewControllerAdapter+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerAdapter+DataSource.swift"; sourceTree = "<group>"; };
 		A43ADA0F215A2205003664AD /* ViewControllerAdapter+DelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerAdapter+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		A43ADA11215A27DA003664AD /* ViewControllerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAdapter.swift; sourceTree = "<group>"; };
+		A43ADA19215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionViewFlowLayoutExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43ADA1B215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayoutExampleTests.swift; sourceTree = "<group>"; };
+		A43ADA1D215A47FF003664AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43ADA23215A49E8003664AD /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		A43ADA25215A4A4B003664AD /* BooksModelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksModelControllerTests.swift; sourceTree = "<group>"; };
 		A43D0F64213FC247009D8223 /* CollectionViewFlowLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewFlowLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43D0F67213FC247009D8223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43D0F69213FC247009D8223 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A43ADA16215A47FF003664AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A43D0F61213FC247009D8223 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,10 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A43ADA1A215A47FF003664AD /* CollectionViewFlowLayoutExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				A43ADA1B215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.swift */,
+				A43ADA1D215A47FF003664AD /* Info.plist */,
+				A43ADA23215A49E8003664AD /* ViewControllerTests.swift */,
+				A43ADA25215A4A4B003664AD /* BooksModelControllerTests.swift */,
+			);
+			path = CollectionViewFlowLayoutExampleTests;
+			sourceTree = "<group>";
+		};
 		A43D0F5B213FC247009D8223 = {
 			isa = PBXGroup;
 			children = (
 				A43D0F66213FC247009D8223 /* CollectionViewFlowLayoutExample */,
+				A43ADA1A215A47FF003664AD /* CollectionViewFlowLayoutExampleTests */,
 				A43D0F65213FC247009D8223 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A43D0F64213FC247009D8223 /* CollectionViewFlowLayoutExample.app */,
+				A43ADA19215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +132,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A43ADA18215A47FF003664AD /* CollectionViewFlowLayoutExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A43ADA20215A47FF003664AD /* Build configuration list for PBXNativeTarget "CollectionViewFlowLayoutExampleTests" */;
+			buildPhases = (
+				A43ADA15215A47FF003664AD /* Sources */,
+				A43ADA16215A47FF003664AD /* Frameworks */,
+				A43ADA17215A47FF003664AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A43ADA1F215A47FF003664AD /* PBXTargetDependency */,
+			);
+			name = CollectionViewFlowLayoutExampleTests;
+			productName = CollectionViewFlowLayoutExampleTests;
+			productReference = A43ADA19215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A43D0F63213FC247009D8223 /* CollectionViewFlowLayoutExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A43D0F76213FC248009D8223 /* Build configuration list for PBXNativeTarget "CollectionViewFlowLayoutExample" */;
@@ -117,10 +173,14 @@
 		A43D0F5C213FC247009D8223 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Fernando Cardenas";
 				TargetAttributes = {
+					A43ADA18215A47FF003664AD = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = A43D0F63213FC247009D8223;
+					};
 					A43D0F63213FC247009D8223 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
@@ -141,11 +201,19 @@
 			projectRoot = "";
 			targets = (
 				A43D0F63213FC247009D8223 /* CollectionViewFlowLayoutExample */,
+				A43ADA18215A47FF003664AD /* CollectionViewFlowLayoutExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A43ADA17215A47FF003664AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A43D0F62213FC247009D8223 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +227,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A43ADA15215A47FF003664AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A43ADA24215A49E8003664AD /* ViewControllerTests.swift in Sources */,
+				A43ADA26215A4A4B003664AD /* BooksModelControllerTests.swift in Sources */,
+				A43ADA1C215A47FF003664AD /* CollectionViewFlowLayoutExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A43D0F60213FC247009D8223 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,6 +256,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A43ADA1F215A47FF003664AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A43D0F63213FC247009D8223 /* CollectionViewFlowLayoutExample */;
+			targetProxy = A43ADA1E215A47FF003664AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A43D0F6B213FC247009D8223 /* Main.storyboard */ = {
@@ -199,6 +285,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A43ADA21215A47FF003664AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollectionViewFlowLayoutExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = fernando.CollectionViewFlowLayoutExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollectionViewFlowLayoutExample.app/CollectionViewFlowLayoutExample";
+			};
+			name = Debug;
+		};
+		A43ADA22215A47FF003664AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollectionViewFlowLayoutExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = fernando.CollectionViewFlowLayoutExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollectionViewFlowLayoutExample.app/CollectionViewFlowLayoutExample";
+			};
+			name = Release;
+		};
 		A43D0F74213FC248009D8223 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -350,6 +479,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A43ADA20215A47FF003664AD /* Build configuration list for PBXNativeTarget "CollectionViewFlowLayoutExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A43ADA21215A47FF003664AD /* Debug */,
+				A43ADA22215A47FF003664AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A43D0F5F213FC247009D8223 /* Build configuration list for PBXProject "CollectionViewFlowLayoutExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
